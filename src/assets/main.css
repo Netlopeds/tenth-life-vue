@@ -1,0 +1,772 @@
+/* Font Faces */
+@font-face {
+  font-family: 'Genty Sans';
+  src: url('/Fonts/genty-sans-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/Fonts/Montserrat-Arabic Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat Arabic';
+  src: url('/Fonts/Montserrat-Arabic Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garet Heavy';
+  src: url('/Fonts/Garet-Heavy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Garet Normal';
+  src: url('/Fonts/Garet-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Peace Sans';
+  src: url('/Fonts/Peace-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #fffdf0;
+  font-family: 'Montserrat Arabic', sans-serif;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #fffdf0;
+}
+
+.navbar-title,
+#card-title,
+.welcome-title {
+  font-family: 'Genty Sans', sans-serif !important;
+}
+
+body,
+form,
+input,
+textarea,
+select,
+button {
+  font-family: 'Montserrat Arabic', sans-serif;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fffdf0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Genty Sans', sans-serif;
+}
+
+/* Welcome Page Specific Styles */
+#welcome-body {
+  transition: filter 0.3s ease;
+  background-color: #fffdf0;
+}
+
+/* Full-width yellow banner */
+.full-width-banner {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-color: #FDDB79;
+  padding: 2rem 0;
+}
+
+/* Left banner content alignment */
+.left-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 4rem;
+  padding-right: 1rem;
+}
+
+/* Navbar text and underline */
+.nav-item {
+  position: relative;
+  font-family: 'Garet Normal', sans-serif;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* On hover and when active-link is present */
+.nav-item:hover::after,
+.nav-item.active-link::after {
+  transform: scaleX(1);
+}
+
+/* Card layout and effects */
+.welcome-page .card {
+  position: relative;
+  overflow: hidden;
+  background-color: #fffdf0;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-page .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Heart icon (top-right of cards) */
+.heart-icon-placeholder {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Card image styling */
+.welcome-page .card img {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+/* Text overlay on card */
+.welcome-page .card .card-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.welcome-page .card:hover .card-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Center About Us arrow */
+#welcome-body .about-us-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Card row layout */
+#welcome-body .card-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Button and banner text */
+.banner-title {
+  font-family: 'Peace Sans', sans-serif;
+  color: #D27749;
+  font-size: 70px;
+}
+
+.banner-description {
+  font-family: 'Garet Heavy', sans-serif;
+  text-align: left;
+  color: #a76239;
+  font-size: 50px;
+  position: relative;
+  left: 100px;
+}
+
+.shop-now-btn {
+  font-family: 'Garet Normal', sans-serif;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  position: relative;
+  left: 100px;
+}
+
+#shop-arrow {
+  width: 40px;
+}
+
+.hero-food {
+  width: 790px;
+}
+
+.satisfied-text {
+  font-family: 'Montserrat Arabic', sans-serif;
+  padding-top: 20px;
+  font-size: 1rem;
+  color: #333;
+  position: relative;
+  left: 100px;
+}
+
+.cat-eating-img {
+  position: relative;
+  bottom: -33px; 
+  right: 40px;    
+  max-height: 300px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.big-paw-print {
+  position: absolute;
+  left: -150px;
+  width: 350px;
+  top: -90px;
+}
+
+#about-btn {
+  position: relative;
+  top: 100px; 
+}
+
+.about-btn-text {
+  position: relative;
+  top: 100px;
+  color: #a76239;
+}
+
+/* RESPONSIVE FIX FOR SMALL SCREENS */
+@media (max-width: 768px) {
+  .left-banner-content {
+    align-items: center !important;
+    text-align: center !important;
+    padding: 1rem !important;
+  }
+
+  .banner-description,
+  .shop-now-btn,
+  .satisfied-text {
+    left: 0 !important;
+    text-align: center !important;
+    position: static !important;
+  }
+
+  .cat-eating-img {
+    position: static !important;
+    margin: 1rem 0 3 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .big-paw-print {
+    display: none; /* Optional: hide to avoid overlapping */
+  }
+
+  #about-btn,
+  .about-btn-text {
+    top: 0 !important;
+    position: static !important;
+    margin-top: 2rem;
+  }
+}
+
+/* ============================================ */
+/* ABOUT PAGE STYLES */
+/* ============================================ */
+
+@font-face {
+  font-family: 'Open Sauce';
+  src: url('/Fonts/Open-Sauce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Norms Bold';
+  src: url('/Fonts/TT-Norms-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TT Norms Light';
+  src: url('/Fonts/TT-Norms-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.about-body {
+  background-color: #fffdf0;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  z-index: 0;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.about-header {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.subtitle {
+  font-family: "TT Norms Light";
+  text-transform: uppercase;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: "TT Norms Bold";
+  font-size: 32px;
+  font-weight:bolder;
+  color: #0f2719;
+  position: relative;
+  display: inline-block;
+}
+
+.underline {
+  width: 80px;
+  height: 6px;
+  background-color: #ffc107;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* Carousel */
+.about-carousel {
+  padding-bottom: 60px;
+  overflow: visible;
+  width: 100%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #3ba1c8;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: none;
+}
+
+.about-carousel .carousel-item {
+  overflow: visible;
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 50px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.testimonial-card,
+.testimonial-card-side {
+  width: 280px;
+  height: 380px;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background-color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  text-align: left;
+  z-index: 1;
+}
+
+.testimonial-card.middle {
+  height: 440px;
+  transform: scale(1.08);
+  z-index: 2;
+}
+.testimonial-card.middle:hover {
+  transform: scale(1.15);
+}
+
+.testimonial-card-side:hover {
+  transform: scale(1.15);
+}
+
+.testimonial-card-side.blurred,
+.testimonial-card.blurred {
+  filter: blur(5px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.quote-icon {
+  font-size: 100px;
+  color: #8f4825;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.testimonial-text {
+  font-family: "Open Sauce";
+  font-size: 18px;
+  color: #444;
+  margin: -30px 0 20px;
+  text-align: justify;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.profile-name .last-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.profile-name .first-name {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.bot-left-squig {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  max-width: 60vw;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  transform-origin: bottom left;
+  overflow: hidden;
+}
+
+.bot-right-loop {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  width: 340px;
+  max-width: 65vw;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(-5deg);
+  transform-origin: bottom right;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bot-left-squig {
+    width: 100px;
+  }
+
+  .bot-right-loop {
+    width: 120px;
+  }
+
+  .testimonial-card,
+  .testimonial-card-side,
+  .testimonial-card.middle {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/* ============================================ */
+/* SHOP PAGE STYLES */
+/* ============================================ */
+
+#shop_banner {
+  background-image: url('/Images/shop_banner.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 96.5vw;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#banner-text {
+  font-size: 5rem;
+  font-family: 'Peace Sans';
+  color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); 
+}
+
+.search-icon{
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.custom-search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.custom-search-bar input {
+  width: 100%;
+  padding: 0.75rem 3.5rem 0.75rem 1.25rem;
+  border-radius: 50px;
+  border: none;
+  font-family: 'Genty Sans';
+  font-size: 1rem;
+  outline: none;
+}
+
+.custom-search-bar .search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff914d;
+  border-radius: 50%;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-search-bar .search-icon img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+.search-icon:hover {
+  transform: translateY(-60%); 
+  background-color: #ff7a26;  
+}
+
+.shop-body {
+  background-color: #fffdf0;
+}
+
+.shop-inner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-item {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: opacity 0.2s ease-in-out;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18); 
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-image:hover {
+  opacity: 0.7;
+}
+
+.product-info {
+  padding: 0.75rem 0.9rem 0 0.9rem;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: left;
+  font-family: 'Genty Sans';
+}
+
+.product-price {
+  font-weight: bold;
+  font-size: 0.95rem;
+  font-family: 'Montserrat Arabic';
+}
+
+.product-item:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.add-button {
+  background-color: #ff914d;
+  border: none;
+  border-radius: 50px;
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Genty Sans';
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+  color: #fff;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+}
+
+.add-button img {
+  width: 16px;
+  height: 16px;
+}
+
+.add-text {
+  font-weight: 500;
+}
+
+/* Navbar Dropdown Fixes */
+.navbar .dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  right: 0 !important;
+  left: auto !important;
+  top: 100% !important;
+  margin-top: 0.5rem;
+  transform: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+}
+
+.navbar .dropdown-menu-end {
+  right: 0 !important;
+  left: auto !important;
+}
+
+.navbar .dropdown-menu.show {
+  display: block;
+}

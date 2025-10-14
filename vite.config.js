@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: '/',
+  base: '/tenth-life-appdev/',
   publicDir: 'public',
   resolve: {
     alias: {

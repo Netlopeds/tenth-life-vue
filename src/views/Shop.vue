@@ -2,10 +2,10 @@
   <div class="shop-body">
     <Navbar />
 
-    <div class="container-fluid shop-container p-4">
-      <div id="shop_banner" class="text-center py-5 mt-3 mb-5">
-        <h1 id="banner-text" class="fw-bold">Check Out Our Pur-fect Shop</h1>
-        <div class="custom-search-bar mt-4 mx-auto">
+    <div class="container-fluid shop-container px-3 px-md-4 py-4">
+      <div id="shop_banner" class="text-center py-4 py-md-5 mt-2 mt-md-3 mb-4 mb-md-5">
+        <h1 id="banner-text" class="fw-bold">Check Out Our Purr-fect Shop</h1>
+        <div class="custom-search-bar mt-3 mt-md-4 mx-auto">
           <input
             type="text"
             class="search-text form-control"
@@ -19,8 +19,8 @@
       </div>
 
       <div class="container shop-inner-container">
-        <div class="row g-4">
-          <div v-for="(product, idx) in filteredProducts" :key="idx" class="col-md-3 col-sm-6">
+        <div class="row g-3 g-md-4">
+          <div v-for="(product, idx) in filteredProducts" :key="idx" class="col-6 col-md-4 col-lg-3">
             <div class="product-item">
               <img
                 :src="product.image"
@@ -57,7 +57,7 @@
       ref="modalRef"
     >
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content product-modal">
           <div class="modal-header">
             <h5 class="modal-title">Select Quantity</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -67,25 +67,25 @@
               <img
                 :src="selectedProduct.image"
                 :alt="selectedProduct.name"
-                style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;"
+                class="modal-product-image"
               />
-              <h5>{{ selectedProduct.name }}</h5>
-              <div class="text-muted">Price per item: ${{ selectedProduct.price.toFixed(2) }}</div>
+              <h5 class="modal-product-name">{{ selectedProduct.name }}</h5>
+              <div class="text-muted modal-product-price">Price per item: ${{ selectedProduct.price.toFixed(2) }}</div>
               
-              <div class="d-flex justify-content-center align-items-center mt-3">
-                <button class="btn btn-secondary" @click="quantity = Math.max(1, quantity - 1)">−</button>
-                <span class="mx-4 fs-4">{{ quantity }}</span>
-                <button class="btn btn-secondary" @click="quantity++">+</button>
+              <div class="d-flex justify-content-center align-items-center mt-3 quantity-selector">
+                <button class="btn btn-secondary quantity-btn" @click="quantity = Math.max(1, quantity - 1)">−</button>
+                <span class="mx-3 mx-md-4 fs-4 quantity-display">{{ quantity }}</span>
+                <button class="btn btn-secondary quantity-btn" @click="quantity++">+</button>
               </div>
               
-              <div class="mt-3 fw-bold" style="font-size: 1.2rem;">
+              <div class="mt-3 fw-bold modal-total">
                 Total: ${{ (selectedProduct.price * quantity).toFixed(2) }}
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-warning" @click="addToCartAndClose">
+            <button type="button" class="btn btn-secondary modal-btn" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-warning modal-btn" @click="addToCartAndClose">
               Add {{ quantity }} to Cart
             </button>
           </div>
